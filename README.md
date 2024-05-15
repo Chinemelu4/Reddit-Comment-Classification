@@ -5,16 +5,13 @@ My approach for Machine learning projects is usually datacentric rather than mod
 
 1. I webscraped several thousand of comments from different relevant reddit communities eg ('medicine', 'surgery', 'veterinary', 'veterinaryprofession', 'vet') using the PRAW library. Below is my function to do that:
 
-'''def extract_comments(subreddit):
+'''
+def extract_comments(subreddit):
     subreddit = reddit.subreddit('veterinaryprofession')
     hot = subreddit.hot(limit=None)
-
-    
     with open(f'{subreddit}.csv', 'w', newline='', encoding='utf-8') as csvfile:
         csv_writer = csv.writer(csvfile)
-        
         csv_writer.writerow(['Author Occupation', 'Comment'])
-        
         for submission in hot:
             submission.comments.replace_more(limit=None) 
             for comment in submission.comments.list():
