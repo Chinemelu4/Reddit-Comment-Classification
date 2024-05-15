@@ -6,6 +6,10 @@ My approach for Machine learning projects is usually datacentric rather than mod
 1. I webscraped several thousand of comments from different relevant reddit communities eg ('medicine', 'surgery', 'veterinary', 'veterinaryprofession', 'vet') using the PRAW library. Below is my function to do that:
 
 ```python
+import pandas as pd
+import numpy as np
+import praw
+
 def extract_comments_to_dataframe(subreddit):
     subreddit = reddit.subreddit(subreddit)
     hot = subreddit.hot(limit=None)
