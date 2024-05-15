@@ -5,10 +5,11 @@ My approach for Machine learning projects is usually datacentric rather than mod
 
 1. I webscraped several thousand of comments from different relevant reddit communities eg ('medicine', 'surgery', 'veterinary', 'veterinaryprofession', 'vet') using the PRAW library. Below is my function to do that:
 
-'''
+```python
 def extract_comments(subreddit):
     subreddit = reddit.subreddit('veterinaryprofession')
     hot = subreddit.hot(limit=None)
+    
     with open(f'{subreddit}.csv', 'w', newline='', encoding='utf-8') as csvfile:
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(['Author Occupation', 'Comment'])
@@ -19,11 +20,9 @@ def extract_comments(subreddit):
                 comment_text = comment.body
                 csv_writer.writerow([author_occupation, comment_text])
     returnf'{subreddit}.csv'
-'''
+```
 
-2. I ensured the consistency in naming of the 'author occupation' columns, i.e, MD, Doctor, Medical Doctor, US doctor, etc
-are mapped to a single name like "Doctor" same thing for veterinarian, veterinary doctor, vet, animal doctor,
-US Vet-Small Animal, UK vet etc are mapped to a single name "Veterinarian". 
+2. I ensured the consistency in naming of the 'author occupation' columns, i.e, MD, Doctor, Medical Doctor, US doctor, etc are mapped to a single name like "Doctor" same thing for veterinarian, veterinary doctor, vet, animal doctor, US Vet-Small Animal, UK vet etc are mapped to a single name "Veterinarian". 
 
 3. I removed rows where the occupation of author is unknown
 4. Other values mapped to "Others"
