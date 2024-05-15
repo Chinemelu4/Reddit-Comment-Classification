@@ -3,7 +3,7 @@
 ### My Approach
 My approach for Machine learning projects is usually datacentric rather than model-centric. While there are very powerful deep learning models, I find that getting the training data quality and preparation optimal is usually more important. Hence my need to source a highly represenattove data before I began. So I did the following:
 
-1. I webscraped several thousand of comments from different relevant reddit communities eg ('medicine', 'surgery', 'veterinary', 'veterinaryprofession', 'vet') using the PRAW library. Below is my function to do that:
+1. I webscraped several thousand of comments from different relevant reddit communities eg ('medicine', 'surgery', 'veterinary', 'veterinaryprofession', 'vet') using the PRAW library. Below is my function to do that, just in case you are interested in it:
 
 ```python
 import pandas as pd
@@ -37,5 +37,7 @@ def extract_comments_to_dataframe(subreddit):
 8. Remove special characters and punctuations
 
 By Doing this I was able to use a simpler algorithm to achieve good accuracy on classifying the comments to the occupation of the author. Other more complex algorithms like BERT achieved a slightly better accuracy but the tradeoff between the computational resources and time needed to train the model was not worth the marginal improvement in the model's accuracy.
+
+The full training code is in the Jupyter notebook contained in this repo
 
 You can find my training data here [Training Data](https://drive.google.com/drive/folders/14dXdcPJ8JPJurrbshoZTV4ukOhDwho_g?usp=sharing)
